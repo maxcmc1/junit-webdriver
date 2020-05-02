@@ -1,5 +1,6 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.AfterClass;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -19,6 +20,11 @@ public class WebDriverTest {
         System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
         driver = new ChromeDriver();
         driver.get("https://skryabin.com/market/quote.html");
+    }
+
+    @Before
+    public void beforeScenario() {
+        driver.manage().deleteAllCookies();
     }
 
     @Test
