@@ -22,6 +22,11 @@ public class WebDriverTest {
         driver.get("https://skryabin.com/market/quote.html");
     }
 
+    @Before
+    public void beforeScenario() {
+        driver.manage().deleteAllCookies();
+    }
+
     @Test
     public void verifyTitle() {
         String actualTitle = driver.getTitle();
