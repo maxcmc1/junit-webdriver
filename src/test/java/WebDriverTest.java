@@ -1,12 +1,14 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.*;
+import org.junit.AfterClass;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 
 import static org.assertj.core.api.Assertions.assertThat;
-
 
 public class WebDriverTest {
 
@@ -39,6 +41,4 @@ public class WebDriverTest {
     public static void after() {
         driver.quit();
     }
-
-
 }
