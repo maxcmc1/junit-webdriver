@@ -37,9 +37,9 @@ public class WebDriverTest {
     @Test
     public void fieldsTest() {
         System.out.println("fieldsTest");
-        driver.findElement(By.xpath("//input[@name='email']")).sendKeys("jdoe@example.com");
+        driver.findElement(By.xpath("//input[@name='email']")).sendKeys("johndoe@example.com");
         String actualValue = driver.findElement(By.xpath("//input[@name='email']")).getAttribute("value");
-        assertThat(actualValue).isEqualTo("jdoe@example.com");
+        assertThat(actualValue).isEqualTo("johndoe@example.com");
     }
 
     @AfterClass
