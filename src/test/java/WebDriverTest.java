@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
@@ -42,8 +43,14 @@ public class WebDriverTest {
         assertThat(actualValue).isEqualTo("johndoe@example.com");
         // Username is a required field
         driver.findElement(By.name("username")).sendKeys("jdoe");
-        String userName = driver.findElement(By.name("username")).getAttribute("value");
+        String userName = driver.findElement(By.xpath("//input[@name='username']")).getAttribute("value");
         assertThat(userName).isEqualTo("jdoe");
+        //Password and confirmPassword should match
+       driver.findElement(By.xpath("//input[@name='password']")).sendKeys("welcome");
+        driver.findElement(By.xpath("//input[@name='confirmPassword']")).sendKeys("Welcome"+ Keys.ENTER);
+        String expectedErrorMessage = "Passwords do not match!";
+        String actualErrorMessage =driver.findElement(By.xpath("//label[@id='confirmPassword-error']")).getText();
+        assertThat(expectedErrorMessage).isEqualTo(actualErrorMessage);
     }
 
     @AfterClass
