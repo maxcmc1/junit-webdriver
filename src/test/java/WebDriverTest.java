@@ -24,6 +24,7 @@ public class WebDriverTest {
 
     @Before
     public void beforeScenario() {
+        
         driver.manage().deleteAllCookies();
     }
 
