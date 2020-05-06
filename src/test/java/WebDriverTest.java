@@ -24,19 +24,18 @@ public class WebDriverTest {
 
     @Before
     public void beforeScenario() {
+        
         driver.manage().deleteAllCookies();
     }
 
     @Test
     public void verifyTitle() {
-        System.out.println("verifyTitle");
         String actualTitle = driver.getTitle();
         assertThat(actualTitle).isEqualTo("Get a Quote");
     }
 
     @Test
     public void fieldsTest() {
-        System.out.println("fieldsTest");
         driver.findElement(By.xpath("//input[@name='email']")).sendKeys("johndoe@example.com");
         String actualValue = driver.findElement(By.xpath("//input[@name='email']")).getAttribute("value");
         assertThat(actualValue).isEqualTo("johndoe@example.com");
